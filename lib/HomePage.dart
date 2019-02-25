@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatefulWidget {
-  String phone;
-  HomePage(this.phone);
+  FirebaseUser user;
+  HomePage(this.user);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
         body: new Container(
           padding: EdgeInsets.symmetric(horizontal: 8),
           child: new Center(
-            child: new Text("Hey: ${widget.phone}"),
+            child: new Text("Hey: ${widget.user.phoneNumber}"),
           ),
         ),
       ),

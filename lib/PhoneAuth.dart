@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_phone_auth/HomePage.dart';
+import 'package:flushbar/flushbar.dart';
+
 
 
 class PhoneAuth extends StatefulWidget {
@@ -16,6 +18,8 @@ class _PhoneAuthState extends State<PhoneAuth> {
   final TextEditingController _smsController = new TextEditingController();
   String _phoneCode;
   String verificationId;
+  FirebaseUser user;
+  var _keyField = GlobalKey<FormFieldState>();
 
   _buildCountryPickerDropdown() => Row(
     children: <Widget>[
@@ -34,10 +38,16 @@ class _PhoneAuthState extends State<PhoneAuth> {
         width: 8.0,
       ),
       Expanded(
-        child: TextField(
+        child: TextFormField(
+          key: _keyField,
           controller: _phoneController,
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(labelText: "Phone"),
+          validator: (val) {
+            if(val.isEmpty) {
+              return "this field cannot be empty";
+            }
+          },
         ),
       )
     ],
@@ -57,32 +67,43 @@ class _PhoneAuthState extends State<PhoneAuth> {
 
 
   Future<void> verifyPhone(BuildContext context) async {
-    final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
-      this.verificationId = verId;
-    };
+    try {
 
-    final PhoneCodeSent smsCodeSent = (String verId, [int forceCodeResend]) {
-      this.verificationId = verId;
-      smsCodeDialog(context).then((value) {
-        print('Signed in');
-      });
-    };
+      final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
+        this.verificationId = verId;
+      };
 
-    final PhoneVerificationCompleted verifiedSuccess = (FirebaseUser user) {
-      print('Successful verification');
-    };
+      final PhoneCodeSent smsCodeSent = (String verId, [int forceCodeResend]) {
+        this.verificationId = verId;
+        smsCodeDialog(context).then((value) {
+          print('Signed in');
+        });
+      };
 
-    final PhoneVerificationFailed veriFailed = (AuthException exception) {
-      print('Failed verification: ${exception.message}');
-    };
+      final PhoneVerificationCompleted verifiedSuccess = (FirebaseUser user) {
+        print('Successful verification');
+        if(user != null) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(user)));
+        }else{
+          print("user is null");
+        }
+      };
 
-    await FirebaseAuth.instance.verifyPhoneNumber(
-        phoneNumber: "+${_phoneCode+_phoneController.text.trim()}",
-        codeAutoRetrievalTimeout: autoRetrieve,
-        codeSent: smsCodeSent,
-        timeout: const Duration(seconds: 5),
-        verificationCompleted: verifiedSuccess,
-        verificationFailed: veriFailed);
+      final PhoneVerificationFailed veriFailed = (AuthException exception) {
+        print('Failed verification: ${exception.message}');
+      };
+
+      await FirebaseAuth.instance.verifyPhoneNumber(
+          phoneNumber: "+${_phoneCode+_phoneController.text.trim()}",
+          codeAutoRetrievalTimeout: autoRetrieve,
+          codeSent: smsCodeSent,
+          timeout: const Duration(seconds: 5),
+          verificationCompleted: verifiedSuccess,
+          verificationFailed: veriFailed);
+
+    }catch(e) {
+      print("error: $e");
+    }
   }
 
   Future<bool> smsCodeDialog(BuildContext context) {
@@ -107,11 +128,11 @@ class _PhoneAuthState extends State<PhoneAuth> {
                       smsCode: _smsController.text.trim(),
                   );
 
-                  await FirebaseAuth.instance.signInWithCredential(credential).then((user) {
+                  user = await FirebaseAuth.instance.signInWithCredential(credential).then((user) {
                     if(user != null) {
                       Navigator.of(context).pop();
                       print("Successful verification user is: ${user}");
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(user.phoneNumber)));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(user)));
                     }else{
                       print("Failed verification");
                     }
@@ -123,6 +144,19 @@ class _PhoneAuthState extends State<PhoneAuth> {
             ],
           );
         });
+  }
+
+  flushBarMessage(BuildContext context, String msg) {
+    Flushbar()
+      ..message = "$msg"
+      ..icon = Icon(
+        Icons.info_outline,
+        size: 28.0,
+        color: Colors.blue[300],
+      )
+      ..duration = Duration(seconds: 4)
+      ..leftBarIndicatorColor = Colors.blue[300]
+      ..show(context);
   }
 
   @override
@@ -153,8 +187,14 @@ class _PhoneAuthState extends State<PhoneAuth> {
                 color: Colors.green.shade800,
                 textColor: Colors.white,
                 onPressed: () {
-                  print("+${_phoneCode+_phoneController.text.trim()}");
-                  verifyPhone(context);
+                  if(_phoneCode != null) {
+                    if(_keyField.currentState.validate()) {
+                      print("+${_phoneCode+_phoneController.text.trim()}");
+                      verifyPhone(context);
+                    }
+                  }else{
+                    flushBarMessage(context, "please select your code country");
+                  }
                 },
               ),
 
