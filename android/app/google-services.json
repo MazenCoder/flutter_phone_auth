@@ -1,0 +1,215 @@
+{
+  "project_info": {
+    "project_number": "928846649951",
+    "firebase_url": "https://flutter-firebase-636d0.firebaseio.com",
+    "project_id": "flutter-firebase-636d0",
+    "storage_bucket": "flutter-firebase-636d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928846649951:android:a26de113dc6dfb6f",
+        "android_client_info": {
+          "package_name": "com.mobidroid.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928846649951-ecgt2e0is6hn1a3ft0n5mlnffpd8ig6e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobidroid.ecommerce",
+            "certificate_hash": "28c8ace7fca6d75444e932382c6a5ddb8ae7a22c"
+          }
+        },
+        {
+          "client_id": "928846649951-qs7sh4se8nls6moastfpm4q21pgj5ikg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6viguRxqGK5lglhcGI0npisY-p_Tpnqw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928846649951-qs7sh4se8nls6moastfpm4q21pgj5ikg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "928846649951-djpu60cp17o9c40v3cdbjldrindk9ddm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mobidroid.ecommerce"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928846649951:android:81c44696bd99cd1b",
+        "android_client_info": {
+          "package_name": "com.mobidroid.flutterapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928846649951-13nnl6ioads64ridq8ega43njcmrghqp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobidroid.flutterapp",
+            "certificate_hash": "28c8ace7fca6d75444e932382c6a5ddb8ae7a22c"
+          }
+        },
+        {
+          "client_id": "928846649951-qs7sh4se8nls6moastfpm4q21pgj5ikg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6viguRxqGK5lglhcGI0npisY-p_Tpnqw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928846649951-qs7sh4se8nls6moastfpm4q21pgj5ikg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "928846649951-djpu60cp17o9c40v3cdbjldrindk9ddm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mobidroid.ecommerce"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928846649951:android:b20afdd218dfef90",
+        "android_client_info": {
+          "package_name": "com.mobidroid.flutterecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928846649951-03k2trs54fn5m7iorjgi8bbo303rs3o8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobidroid.flutterecommerce",
+            "certificate_hash": "28c8ace7fca6d75444e932382c6a5ddb8ae7a22c"
+          }
+        },
+        {
+          "client_id": "928846649951-qs7sh4se8nls6moastfpm4q21pgj5ikg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6viguRxqGK5lglhcGI0npisY-p_Tpnqw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928846649951-qs7sh4se8nls6moastfpm4q21pgj5ikg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "928846649951-djpu60cp17o9c40v3cdbjldrindk9ddm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mobidroid.ecommerce"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928846649951:android:aa9c9f1e8d8faad3",
+        "android_client_info": {
+          "package_name": "com.mobidroid.flutterphoneauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928846649951-b42flm1hfioedact3at23gui3v56helt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobidroid.flutterphoneauth",
+            "certificate_hash": "28c8ace7fca6d75444e932382c6a5ddb8ae7a22c"
+          }
+        },
+        {
+          "client_id": "928846649951-qs7sh4se8nls6moastfpm4q21pgj5ikg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6viguRxqGK5lglhcGI0npisY-p_Tpnqw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928846649951-qs7sh4se8nls6moastfpm4q21pgj5ikg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "928846649951-djpu60cp17o9c40v3cdbjldrindk9ddm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mobidroid.ecommerce"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
